@@ -12,16 +12,14 @@
     <link media="all" rel="stylesheet" type="text/css" href="confirm/order-style.css" />
 </head>
 <script>
-function getCookie ( cookie_name )
-{
-  var results = document.cookie.match ( '(^|;) ?' + cookie_name + '=([^;]*)(;|$)' );
- 
-  if ( results )
-    return ( unescape ( results[2] ) );
-  else
-    return null;
+function getUrlVars() {
+    var vars = {};
+    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+        vars[key] = value;
+    });
+    return vars;
 }
-var pixel = getCookie ( "pix" );
+var pixel = getUrlVars()["p"];
 var urlfb = 'https://www.facebook.com/tr?id=' + pixel + '&ev=Lead&noscript=1';
   document.write('<img height="1" width="1" src="' + urlfb + '"/>');
   </script>
